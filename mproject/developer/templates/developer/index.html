@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, > initial-scale=1.0">
+    <title>MProject</title>
+</head>
+<body>
+    <h1>MProject</h1>
+    <h2>Liste des développeurs</h2>
+
+    {% if developers %}
+    <ul>
+        {% for dev in developers %}
+        <li><a href="{% url 'developer:detail' dev.id %}">{{ dev.first_name}} {{dev.last_name}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p><strong>Il n'y a aucun développeur enregistré !</strong></p>
+    {% endif %}
+</body>
+</html>
