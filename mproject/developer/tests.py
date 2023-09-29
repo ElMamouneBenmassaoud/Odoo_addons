@@ -33,7 +33,7 @@ class DeveloperIndexViewTests(TestCase):
         """
         response = self.client.get(reverse('developer:index'))
         self.assertEquals(response.status_code, 200)
-        self.assertContains(response, "Il n'y a aucun développeur enregistré !")
+        self.assertContains(response, "Il n'y a aucun développeur enregistré")
         self.assertQuerysetEqual(response.context['developers'], [])
 
     def test_one_developer(self):

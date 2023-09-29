@@ -1,8 +1,7 @@
-{% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-dev-modal">
-     Add user
+     Ajouter une tâche
 </button>
 
  <!-- Ajout du modal contenant le formulaire -->
@@ -10,15 +9,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">New developer</h4>
+                    <h4 class="modal-title">New Task</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{% url 'developer:create' %}" method="post">
+                    <form action="{% url 'developer:addTask' developer.id %}" method="post">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form|crispy }}
                         <div>
-                            <button class="btn btn-primary" type="submit">Créer</button>
+                            <button class="btn btn-primary" type="submit">Ajouter la tâche</button>
                         </div>
                     </form>
                 </div>
