@@ -10,5 +10,4 @@ urlpatterns = [
     path('delete/<int:pk>', views.delete, name='delete'),
 
     path('addTask/<int:pk>', views.addTask, name='addTask'),
-
 ]

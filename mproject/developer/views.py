@@ -7,7 +7,6 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import DeveloperForm, TaskForm
 from django.urls import reverse
-from .models import Task
 from django.views.generic import DetailView, ListView
 
 
@@ -19,7 +18,9 @@ class IndexView(ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['form'] = DeveloperForm
+        context['app'] = "developer"
         return context
+
 
 
 class DevDetailVue(DetailView):
@@ -28,7 +29,14 @@ class DevDetailVue(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = TaskForm
+        developer_instance = self.get_object()
+
+        initial_data = {'assignee': developer_instance}
+        task_form = TaskForm(initial=initial_data)
+
+        task_form.fields['assignee'].widget.attrs['disabled'] = True
+        context['form'] = task_form
+        context['app'] = "developer"
         return context
 
 
@@ -69,3 +77,7 @@ def addTask(request, pk):
     # les données de la requête POST. Cela empêche les données d'être postée deux
     # fois si l'utilisateur clique sur le bouton précédent.
     return HttpResponseRedirect(reverse('developer:index'))
+
+
+
+

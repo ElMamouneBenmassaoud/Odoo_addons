@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-dev-modal">
-     Ajouter une tâche
+     <i class="fas fa-tasks"></i> Ajouter une tâche
 </button>
 
  <!-- Ajout du modal contenant le formulaire -->
@@ -13,7 +13,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{% url 'developer:addTask' developer.id %}" method="post">
+                    <form method="post" action="{% if request.resolver_match.app_name == 'developer' %}{% url 'developer:addTask' developer.id %}{% else %}{% url 'task:addTask' %}{% endif %}">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <div>

@@ -7,11 +7,19 @@
     <div class="container-sm l-3 d-flex flex-wrap border">
         {% for dev in developers %}
         <div class="card bg-primary m-2 p-1 rounded-lg" style="width:300px">
-            <div class="card-title">
-                {{ dev.first_name }} {{ dev.last_name }}
+            <div class="card-title card-title bg-warning rounded">
+                <h4 class="text-center mx-auto">{{ dev.first_name }} {{ dev.last_name }}</h4>
             </div>
             <div class="card-body">
-                {{ dev.tasks.all|length }} tâche{{ dev.tasks.all|length|pluralize }}
+                {% if dev.tasks.all|length == 0 %}
+                    <div class="alert alert-danger">
+                        <strong class="small">{{ dev.tasks.all|length }} tâche{{ dev.tasks.all|length|pluralize }}</strong>
+                   </div>
+                {% else %}
+                   <div class="alert alert-success">
+                        <strong class="small">{{ dev.tasks.all|length }} tâche{{ dev.tasks.all|length|pluralize }}</strong>
+                   </div>
+                {% endif %}
             </div>
             <div class="card-footer">
                 <a href="{% url 'developer:detail' dev.id %}" class="btn btn-outline-light">Détails</a>
@@ -24,7 +32,7 @@
         <alert class="alert alert-warning">Il n'y a aucun développeur enregistré</alert>
     </div>
  {% endif %}
-
+    <div class="mb-2"></div>
     {% include 'developer/_create_dev_modal.html' %}
 
 {% endblock content %}

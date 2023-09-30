@@ -4,7 +4,7 @@
     <div class="mt-4 p-5 bg-white rounded">
         <form action="{% url 'developer:delete' developer.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit" class="btn btn-light btn-sm">
+            <button class="btn btn-danger" type="submit">
                 <i class="fa fa-trash"></i>
             </button>
         </form>
@@ -15,9 +15,10 @@
     {% if not developer.is_free %}
         <ul class="list-group">
             {% for task in developer.tasks.all %}
-            <li class="list-group-item">
-                <strong>{{ task.title }}!</strong> {{ task.description }}
+            <li class="list-group-item bg-warning">
+                <strong>{{ task.title }}!</strong> {{ task.description }}<div class="mb-2"></div>
             </li>
+                <div class="mb-2"></div>
             {% endfor %}
         </ul>
     {% else %}

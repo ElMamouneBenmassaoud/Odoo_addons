@@ -1,5 +1,7 @@
 from django import forms
-from .models import Developer, Task
+
+from task.models import Task
+from .models import Developer
 
 
 class DeveloperForm(forms.ModelForm):
