@@ -16,7 +16,10 @@
         <ul class="list-group">
             {% for task in developer.tasks.all %}
             <li class="list-group-item bg-warning">
-                <strong>{{ task.title }}!</strong> {{ task.description }}<div class="mb-2"></div>
+                <strong>{{ task.title }}</strong>
+                <br>
+                <strong> Description : </strong>{{ task.description }}
+                <div class="mb-2"></div>
             </li>
                 <div class="mb-2"></div>
             {% endfor %}
