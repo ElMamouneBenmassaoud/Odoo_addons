@@ -4,8 +4,7 @@ from django.urls import reverse
 from django.views.generic import ListView
 
 import task
-from developer.forms import TaskForm
-from developer.models import Developer
+from task.forms import TaskForm
 from task.models import Task
 
 
@@ -20,7 +19,7 @@ class IndexView(ListView):
         context['form'] = TaskForm
         context['app'] = "task"
         return context
-
+#form task!
 def delete(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.delete()

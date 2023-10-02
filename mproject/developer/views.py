@@ -5,7 +5,8 @@ from django.shortcuts import render
 from developer.models import Developer
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from .forms import DeveloperForm, TaskForm
+from .forms import DeveloperForm
+from task.forms import TaskForm
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 
@@ -34,7 +35,7 @@ class DevDetailVue(DetailView):
         initial_data = {'assignee': developer_instance}
         task_form = TaskForm(initial=initial_data)
 
-        task_form.fields['assignee'].widget.attrs['disabled'] = True
+        task_form.fields['assignee'].disabled = True#.widget.attrs['disabled'] = True
         context['form'] = task_form
         context['app'] = "developer"
         return context

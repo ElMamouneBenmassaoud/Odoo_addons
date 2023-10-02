@@ -9,8 +9,3 @@ class DeveloperForm(forms.ModelForm):
         model = Developer
         fields = ['first_name', 'last_name']
 
-
-class TaskForm(forms.ModelForm):
-    class Meta:
-        model = Task
-        fields = ['title', 'description', 'assignee']
