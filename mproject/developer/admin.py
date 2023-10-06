@@ -15,7 +15,5 @@ class DeveloperAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'is_free')
     inlines = [TaskLine]
 
-@admin.action(description='Enlever assignation des tâches')
-def delete_assignee(modeladmin, request, queryset):
 
 admin.site.register(Developer, DeveloperAdmin)
