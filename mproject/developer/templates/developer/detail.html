@@ -4,7 +4,7 @@
     <div class="mt-4 p-5 bg-white rounded">
         <form action="{% url 'developer:delete' developer.id %}" method="POST">
             {% csrf_token %}
-             {% if perms.task.task_management %}
+             {% if perms.developer.user_management %}
                 <button class="btn btn-danger" type="submit">
                     <i class="fa fa-trash"></i>
                 </button>
