@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class /mnt/extra-addons/(models.Model):
-#     _name = '/mnt/extra-addons/./mnt/extra-addons/'
-#     _description = '/mnt/extra-addons/./mnt/extra-addons/'
+# class /mnt/extra-addons/todo_app(models.Model):
+#     _name = '/mnt/extra-addons/todo_app./mnt/extra-addons/todo_app'
+#     _description = '/mnt/extra-addons/todo_app./mnt/extra-addons/todo_app'
 
 #     name = fields.Char()
 #     value = fields.Integer()
