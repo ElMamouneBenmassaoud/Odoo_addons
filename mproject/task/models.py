@@ -11,3 +11,8 @@ class Task(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.description})"
+
+    class Meta:
+        permissions = [
+            ('task_management', 'Can create, assign and delete tasks'),
+        ]

@@ -1,8 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
-class Developer(models.Model):
+class Developer(AbstractUser):
     first_name = models.CharField("first name", max_length=200)
     last_name = models.CharField(max_length=200)
+
+    REQUIRED_FIELDS = ['first_name', 'last_name']
+
+    class Meta:
+        permissions = [
+            ('user_management', 'Can create, change and delete developer'),
+        ]
 
     def is_free(self):
         return self.tasks.count() == 0
@@ -11,4 +19,4 @@ class Developer(models.Model):
         return f"{self.first_name} {self.last_name}"
 
     is_free.boolean = True
-    is_free.short_description  = "Free"
+    is_free.short_description = "Free"

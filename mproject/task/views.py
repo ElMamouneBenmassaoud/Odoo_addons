@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
@@ -9,10 +10,11 @@ from task.models import Task
 
 
 # Create your views here.
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     model = Task
     template_name = "task/index.html"
     context_object_name = 'tasks'
+    permission_required = 'task.task_management'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

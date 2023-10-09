@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 
 # Create your views here.
@@ -9,22 +10,23 @@ from .forms import DeveloperForm
 from task.forms import TaskForm
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
+from .forms import ShortDeveloperForm
 
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     model = Developer
     template_name = "developer/index.html"
     context_object_name = 'developers'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['form'] = DeveloperForm
+        context['form'] = ShortDeveloperForm
         context['app'] = "developer"
         return context
 
 
 
-class DevDetailVue(DetailView):
+class DevDetailVue(LoginRequiredMixin, DetailView):
     model = Developer
     template_name = 'developer/detail.html'
 
@@ -42,12 +44,13 @@ class DevDetailVue(DetailView):
 
 
 def create(request):
-    form = DeveloperForm(request.POST)
+    form = ShortDeveloperForm(request.POST)
 
     if form.is_valid():
-        Developer.objects.create(
+        Developer.objects.create_user(
             first_name=form.cleaned_data['first_name'],
-            last_name=form.cleaned_data['last_name']
+            last_name=form.cleaned_data['last_name'],
+            username=form.cleaned_data['username'],
         )
     # Toujours renvoyer une HTTPResponseRedirect après avoir géré correctement
     # les données de la requête POST. Cela empêche les données d'être postée deux
