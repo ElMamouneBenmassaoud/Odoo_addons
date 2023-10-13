@@ -13,7 +13,7 @@ class TodoTask(models.Model):
         string='Responsible',
         default=lambda self: self.env.user,
     )
-    team_ids = fields.Many2one(
+    team_ids = fields.Many2many(
         comodel_name='res.partner',
         string='Team',
     )
