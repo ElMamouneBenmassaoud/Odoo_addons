@@ -7,7 +7,8 @@
 ## Odoo
 ### Travail à faire :
 - Continuer le td "Créer un module ODOO" à partir de :
-    * Dépôt git
+    * Dépôt git ✅
+    * Ajouter les droits d’accès au modèle ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -15,4 +16,10 @@
     - Mise à jour de la liste des applications (mode dévellopeur).
     - Installation du module.
     - Modification de l'icone du module.
+
+* Semaine 2 : 
+    - Création du modèle TodoTask.
+    - Les relations de la tâche
+    - Création du modèle ResPartner (héritage avec un seul business Object).
+
 
