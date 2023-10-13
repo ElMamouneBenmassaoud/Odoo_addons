@@ -22,5 +22,3 @@
     - Les relations de la tâche
     - Création du modèle ResPartner (héritage avec un seul business Object).
 
-
-
