@@ -2,6 +2,7 @@
 _build/
 # dotfiles
 .*
+.idea/
 !.gitignore
 !.mailmap
 # compiled python files
