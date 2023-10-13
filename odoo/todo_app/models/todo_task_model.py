@@ -1,7 +1,7 @@
 # todo_task_model.py
 # noinspection PyUnresolvedReferences
 from odoo import models, fields
-
+#test de commit
 
 class TodoTask(models.Model):
     _name = 'todo.task'
