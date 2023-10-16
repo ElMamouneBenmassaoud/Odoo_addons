@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "todo_app",
+    'name': "/mnt/extra-addons/todo_app",
 
     'summary': """
         Todo App offre une interface intuitive pour créer, modifier, 
@@ -27,7 +27,7 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
@@ -35,5 +35,6 @@
     'demo': [
         'demo/demo.xml',
     ],
+
     'application': True,
 }
