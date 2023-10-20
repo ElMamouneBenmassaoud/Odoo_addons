@@ -31,6 +31,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/todo_menu.xml',
+        'views/todo_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

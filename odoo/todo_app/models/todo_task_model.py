@@ -4,10 +4,12 @@ from odoo import models, fields
 
 class TodoTask(models.Model):
     _name = 'todo.task'
-    type = fields.Char(required=True)
-    is_done = fields.Boolean()
-    active = fields.Boolean(default=True)
-    date_deadline = fields.Date()
+
+    name = fields.Char(help="What needs to be done?")
+    is_done = fields.Boolean('Done?')
+    active = fields.Boolean('Active?', default=True)
+    date_deadline = fields.Date('Deadline')
+
     user_id = fields.Many2one(
         comodel_name='res.users',
         string='Responsible',
