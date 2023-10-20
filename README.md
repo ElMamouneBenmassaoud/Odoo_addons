@@ -8,7 +8,8 @@
 ### Travail à faire :
 - Continuer le td "Créer un module ODOO" à partir de :
     * Dépôt git ✅
-    * Ajouter les droits d’accès au modèle ❌
+    * Ajouter les droits d’accès au modèle  ✅
+    * Rrevoir a partir de La uvuliste ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -21,4 +22,9 @@
     - Création du modèle TodoTask.
     - Les relations de la tâche
     - Création du modèle ResPartner (héritage avec un seul business Object).
+
+* Semaine33 :
+    - Ajouter les droits d’accès au modèle
+    - Création de la vue menu
+    - Création de la vue personalisé
 
