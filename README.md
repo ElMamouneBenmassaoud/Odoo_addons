@@ -10,7 +10,7 @@
     * Dépôt git ✅
     * Ajouter les droits d’accès au modèle  ✅
     * Revoir a partir de la liste vue ✅
-    * Commencer le td Logique métier, sécurité et sous moduleFichier ❌
+    * Continuer  àppartir de Sécurité ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -29,7 +29,8 @@
     - Création de la vue menu
     - Création de la vue personalisé
 
-* Semaine443 : 
+* Semaine44 : 
     - Vue recherche avec filtre (domaine)
     - Extention de la vue partner
+    - Logique métier associée au bouton
 
