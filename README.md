@@ -9,7 +9,8 @@
 - Continuer le td "Créer un module ODOO" à partir de :
     * Dépôt git ✅
     * Ajouter les droits d’accès au modèle  ✅
-    * Rrevoir a partir de La uvuliste ❌
+    * Revoir a partir de la liste vue ✅
+    * Commencer le td Logique métier, sécurité et sous moduleFichier ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -23,8 +24,12 @@
     - Les relations de la tâche
     - Création du modèle ResPartner (héritage avec un seul business Object).
 
-* Semaine33 :
+* Semaine 3 :
     - Ajouter les droits d’accès au modèle
     - Création de la vue menu
     - Création de la vue personalisé
+
+* Semaine443 : 
+    - Vue recherche avec filtre (domaine)
+    - Extention de la vue partner
 
