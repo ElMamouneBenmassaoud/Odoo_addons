@@ -1,27 +1,33 @@
 <?xml version="1.0"?>
 <odoo>
     <!-- Action to open To-do Task list -->
-    <act_window id="action_todo_task"
-      name="To-do Task"
-      res_model="todo.task"
-	  view_mode="tree,form"/>
+    <record model="ir.actions.act_window" id="action_todo_task">
+        <field name="name">To-do Task</field>
+        <field name="res_model">todo.task</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" eval="{'search_default_filter_not_done': 1}"/>
 
+    </record>
+
+    <!-- Ajoute un menu en plus dans le menu carré en haut à gauche -->
     <menuitem id="menu_todo_task" name="Todos"/>
 
-    <menuitem id="todo_task_menu" name="Todos" parent="menu_todo_task" />
+    <!-- Ajoute un menu DANS la navbar de l'application interne à l'app -->
+    <menuitem id="todo_task_menu" name="TodoApp" parent="menu_todo_task"/>
 
-    <menuitem id="task_menu" name="Tasks" parent="todo_task_menu" action="action_todo_task" />
+    <!-- Ajoute un sous-menu dans la navbar de l'application (child de menu_todo_task) -->
+    <menuitem id="task_menu" name="Tasks" parent="todo_task_menu" action="action_todo_task"/>
 
-     <!-- Action to open res.partner list -->
-     <record model="ir.actions.act_window" id="contact_list_action">
+    <!-- Action to open res.partner list -  affichage de la liste des res.partner (view many2many) -->
+    <record model="ir.actions.act_window" id="contact_list_action">
         <field name="name">Contacts</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="configuration_menu" name="Configuration" parent="menu_todo_task" />
+    <!-- Ajoute un menu DANS la navbar de l'application interne à l'app -->
+    <menuitem id="configuration_menu" name="Configuration" parent="menu_todo_task"/>
 
-    <menuitem id="contact_menu" name="Contacts" parent="configuration_menu" action="contact_list_action" />
-
+    <!-- Ajoute un sous-menu dans la navbar de l'application (child de configuration_menu) -->
+    <menuitem id="contact_menu" name="Contacts" parent="configuration_menu" action="contact_list_action"/>
 </odoo>
-

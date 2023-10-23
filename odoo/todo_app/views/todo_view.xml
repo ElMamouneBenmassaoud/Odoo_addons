@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <odoo>
-
-    <!-- To-Do Task Form view -->
+    <!-- To-Do Task Form view - création d'un affichage pour le formulaire de tâche-->
     <record id="view_form_todo_task" model="ir.ui.view">
         <field name="name">To-do Task Form</field>
         <field name="model">todo.task</field>
         <field name="arch" type="xml">
-
             <form>
                 <sheet>
                     <group name="group_top">
@@ -23,11 +21,10 @@
                     </group>
                 </sheet>
             </form>
-
         </field>
     </record>
 
-    <!-- To-Do Task List view -->
+    <!-- To-Do Task List view - création d'un affichage des différentes instances du modèle-->
     <record id="view_tree_todo_task" model="ir.ui.view">
         <field name="name">To-do Task Tree</field>
         <field name="model">todo.task</field>
@@ -40,17 +37,16 @@
         </field>
     </record>
 
-    <!-- To-Do Task Search view -->
+    <!-- To-Do Task Search view - création d'un affichage pour la vue de recherche et GESTION DES FILTRES-->
     <record id="view_filter_todo_task" model="ir.ui.view">
         <field name="name">To-do Task Filter</field>
         <field name="model">todo.task</field>
         <field name="arch" type="xml">
             <search>
                 <field name="user_id"/>
-                <filter string="Not Done" name="filter_not_done" domain="[('is_done','=',False)]"/>
-                <filter string="Done" name="filter_done" domain="[('is_done','=!',False)]"/>
+                <filter string="En cours" name="filter_not_done" domain="[('is_done','=',False)]"/>
+                <filter string="Terminé" name="filter_done" domain="[('is_done','!=',False)]"/>
             </search>
         </field>
     </record>
-
 </odoo>
