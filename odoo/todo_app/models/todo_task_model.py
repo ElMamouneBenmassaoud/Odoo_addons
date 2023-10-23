@@ -1,7 +1,10 @@
 # todo_task_model.py
 # noinspection PyUnresolvedReferences
-from odoo import models, fields
+from odoo import models, fields, api, exceptions
 
+import logging
+
+_logger = logging.getLogger(__name__)
 class TodoTask(models.Model):
     _name = 'todo.task'
 
@@ -19,3 +22,20 @@ class TodoTask(models.Model):
         comodel_name='res.partner',
         string='Team',
     )
+
+    def do_clear_done(self):
+        for task in self:
+            if task.active:
+                task.active = False
+                _logger.info('Mamoun TodoTask do_clear_done set active to false')
+            else:
+                raise exceptions.UserError("La tache est déjà inactive")
+        return True
+
+    def write(self, values):
+        # Before write logic
+        if 'active' not in values:
+            _logger.info('Mamoun TodoTask write set active to true')
+            values['active'] = True
+        return super(TodoTask, self).write(values)
+

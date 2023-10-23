@@ -5,7 +5,11 @@
         <field name="name">To-do Task Form</field>
         <field name="model">todo.task</field>
         <field name="arch" type="xml">
+
             <form>
+                <header>
+                    <button name="do_clear_done" type="object" string="Clear Done"/>
+                </header>
                 <sheet>
                     <group name="group_top">
                         <group name="group_left">
@@ -46,6 +50,7 @@
                 <field name="user_id"/>
                 <filter string="En cours" name="filter_not_done" domain="[('is_done','=',False)]"/>
                 <filter string="Terminé" name="filter_done" domain="[('is_done','!=',False)]"/>
+                <filter string="Non-Actif" name="filter_no_actif" domain="[('active','=',False)]"/>
             </search>
         </field>
     </record>
