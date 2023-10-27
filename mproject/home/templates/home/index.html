@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container-sm">
+        {% if user.tasks.all|length %}
+            <ul class="list-group fluid">
+            {% for task in user.tasks.all %}
+              <li class="list-group-item bg-warning">
+                    <h3><strong>{{ task.title }}</strong></h3>
+                    <strong> Description : </strong>{{ task.description }}
+                    <div class="mb-2"></div>
+                </li>
+                    <div class="mb-2"></div>
+            {% endfor %}
+            </ul>
+        {% else %}
+           <div class="alert alert-danger">
+                <p> Aucune tâche{{developer.tasks.all|length|pluralize}} n'est assignée{{user.tasks.all|length|pluralize}}  à {{ user.first_name }} {{ user.last_name }}.</p>
+           </div>
+        {% endif %}
+    </div>
+{% else %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center">
+                    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                    <a href="{% url 'home:register' %}" class="btn btn-success">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock content%}

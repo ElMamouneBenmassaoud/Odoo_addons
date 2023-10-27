@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+{% block title %} Détail - {{ developer.first_name }} {{ developer.last_name }} {% endblock title %}
+{% block content %}
+    <div class="mt-4 p-5 bg-white rounded">
+        <form action="{% url 'developer:delete' developer.id %}" method="POST">
+            {% csrf_token %}
+             {% if perms.developer.user_management %}
+                <button class="btn btn-danger" type="submit">
+                    <i class="fa fa-trash"></i>
+                </button>
+            {% endif %}
+        </form>
+      <div class="card-title card-title bg-warning rounded">
+                <h2 class="text-center mx-auto">{{ developer.first_name }} {{ developer.last_name }}</h2>
+      </div>
+    </div>
+
+    <div class="container-sm">
+    {% if not developer.is_free %}
+        <ul class="list-group">
+            {% for task in developer.tasks.all %}
+            <li class="list-group-item bg-info">
+                <h3><strong>{{ task.title }}</strong></h3>
+                <strong> Description : </strong>{{ task.description }}
+                <div class="mb-2"></div>
+            </li>
+                <div class="mb-2"></div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-danger">
+            <p> Aucune tâche{{developer.tasks.all|length|pluralize}} n'est assignée{{developer.tasks.all|length|pluralize}}  à {{ developer.first_name }}.</p>
+        </div>
+    {% endif %}
+    {% if perms.task.task_management %}
+        {% include 'developer/_create_task_modal.html' %}
+    {% endif %}
+</div>
+{% endblock content %}
