@@ -10,7 +10,7 @@
     * Dépôt git ✅
     * Ajouter les droits d’accès au modèle  ✅
     * Revoir a partir de la liste vue ✅
-    * Continuer  àppartir de Sécurité ❌
+    * Continuer  àppartir de Sécurité : Créer un nouveau groupe ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -29,8 +29,10 @@
     - Création de la vue menu
     - Création de la vue personalisé
 
-* Semaine44 : 
+* Semaine 4 : 
     - Vue recherche avec filtre (domaine)
     - Extention de la vue partner
     - Logique métier associée au bouton
 
+* Semaine 5 : 
+    - Créer un nouvel utilisateur
