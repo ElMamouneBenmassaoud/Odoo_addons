@@ -10,7 +10,11 @@
     * Dépôt git ✅
     * Ajouter les droits d’accès au modèle  ✅
     * Revoir a partir de la liste vue ✅
-    * Continuer  àppartir de Sécurité : Créer un nouveau groupe ❌
+    * Continuer  à partir de Sécurité : 
+        - Créer un nouveau groupe ❌
+        - Donner les accès à un groupe ❌
+        - Créer un utilisateur à l’installation du module ❌
+        - Créer le modèle Tag ❌
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -36,3 +40,4 @@
 
 * Semaine 5 : 
     - Créer un nouvel utilisateur
+    - Créer un sous-module
