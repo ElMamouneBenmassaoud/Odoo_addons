@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-    <!-- Action to open res.partner list -  affichage de la liste des res.partner (view many2many) -->
+    <!-- Action to open _todo.task list -  affichage de la liste des res.partner (view relation many2many dans le model) -->
     <record model="ir.actions.act_window" id="action_todo_tag">
         <field name="name">To-Do Tag</field>
         <field name="res_model">todo.task.tag</field>

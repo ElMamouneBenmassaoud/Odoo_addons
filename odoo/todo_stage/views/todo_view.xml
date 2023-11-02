@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_tree_todo_task" model="ir.ui.view">
+        <field name="name">To-do Task Tree</field>
+        <field name="model">todo.task</field>
+        <!-- Afin que notre nouvelle vue écrase celle du module todo_app il suffit d’ajouter un champs priorité dont la
+         valeur est plus faible que 16. (par défaut ce chiffre vaut 16) -->
+        <field name="priority">15</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="is_done" delete="false" duplicate="false">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="is_done"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
