@@ -28,6 +28,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'views/todo_menu.xml',
         'views/todo_view.xml',
         'views/partner.xml',
