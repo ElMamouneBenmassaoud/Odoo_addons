@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_todo_stage_todo_stage,todo_stage.todo_stage,model_todo_stage_todo_stage,base.group_user,1,1,1,1
+acess_todo_tag_group_user,todo.tag.user,model_todo_task_tag,todo_app.carton_caracters,1,1,1,1
