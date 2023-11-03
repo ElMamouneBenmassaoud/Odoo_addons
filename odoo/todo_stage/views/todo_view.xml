@@ -8,11 +8,35 @@
          valeur est plus faible que 16. (par défaut ce chiffre vaut 16) -->
         <field name="priority">15</field>
         <field name="arch" type="xml">
+            <!-- text decoration (muted); disable action delete and duplicate to a record for tasks list-->
             <tree decoration-muted="is_done" delete="false" duplicate="false">
                 <field name="name"/>
                 <field name="user_id"/>
                 <field name="is_done"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_filter_todo_task"  model="ir.ui.view">
+        <field name="name">To-do Task Filter</field>
+        <field name="model">todo.task</field>
+        <field name="priority">15</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Rechercher par responsible (user) -->
+                <field name="user_id"/>
+                <!-- création des filtres avec leurs domaines (condition appliquer sur chaqued filtre)-->
+                <filter string="En cours" name="filter_not_done" domain="[('is_done','=',False)]"/>
+                <filter string="Terminé" name="filter_done" domain="[('is_done','!=',False)]"/>
+                <filter string="Non-Actif" name="filter_no_actif" domain="[('active','=',False)]"/>
+                <!-- Création d'un nouveau boutton a coté de filter pour regrouper by user -->
+                <group string="Group By">
+                    <filter name="group_user" string="By User"
+                            context="{'group_by': 'user_id'}"/>
+                </group>
+            </search>
+
         </field>
     </record>
 </odoo>
