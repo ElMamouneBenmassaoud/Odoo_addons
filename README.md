@@ -6,15 +6,7 @@
 
 ## Odoo
 ### Travail à faire :
-- Continuer le td "Créer un module ODOO" à partir de :
-    * Dépôt git ✅
-    * Ajouter les droits d’accès au modèle  ✅
-    * Revoir a partir de la liste vue ✅
-    * Continuer  à partir de Sécurité : 
-        - Créer un nouveau groupe ❌
-        - Donner les accès à un groupe ❌
-        - Créer un utilisateur à l’installation du module ❌
-        - Créer le modèle Tag ❌
+- TD : Contraintes et données d’installationFichier
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -40,4 +32,13 @@
 
 * Semaine 5 : 
     - Créer un nouvel utilisateur
+    - Créer un nouveau groupe 
+    - Donner les accès à un groupe 
     - Créer un sous-module
+    - Créer un utilisateur à l’installation du module 
+    - Créer le modèle Tag
+    - Ajouter des fonctionnalités à Task
+    - Création de la vue menu
+    - Création de La liste des tâches
+    - Création du filtre et du groupe by
+
