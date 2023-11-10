@@ -10,3 +10,10 @@ class Tag(models.Model):
 
     # Many2many inverse relationship
     task_ids = fields.Many2many('todo.task', string='Tags')
+
+    #name must be unique
+    _sql_constraints = [
+        ('todo_task_tag_name_unique',
+         'UNIQUE(name)',
+         "Tag name already exists!"),
+    ]
