@@ -1,5 +1,5 @@
 # noinspection PyUnresolvedReferences
-from odoo import models, fields
+from odoo import models, fields, api
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -30,3 +30,19 @@ class TodoTask(models.Model):
 
     # Relational fields
     tag_ids = fields.Many2many('todo.task.tag', string='Tags')
+
+    @api.onchange('user_id')
+    def onchange_user_id(self):
+        self.team_ids = None
+        return {
+            'warning': {
+                'title': "User changed",
+                'message':  "Please choose a new Team",
+            }
+        }
+
+    @api.constrains('name')
+    def _check_name_size(self):
+        for task in self:
+            if len(task.name) < 5:
+                raise models.ValidationError('Must have at least 5 chars!')
