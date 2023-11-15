@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 
 class TodoTask(models.Model):
     _name = 'todo.task'
-    _inherit = ['todo.task']
+    _inherit = ['todo.task', 'mail.thread']
 
     effort_estimate = fields.Integer()
     name = fields.Char(help="What needs to be done?")
