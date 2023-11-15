@@ -6,7 +6,7 @@
 
 ## Odoo
 ### Travail à faire :
-- TD : Contraintes et données d’installationFichier
+- Projet avec cameron !
 
 ### Travail réalisé :
 * Semaine 1 : 
@@ -41,4 +41,8 @@
     - Création de la vue menu
     - Création de La liste des tâches
     - Création du filtre et du groupe by
+
+* Semaine 6 :
+    - TD : Contraintes et données d’installationFichier
+    - Pour aller plus loin : Intégrer un module existant
 
